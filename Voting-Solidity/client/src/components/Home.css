@@ -1,0 +1,17 @@
+.body-content{
+    width: 100%;
+    padding: 5%;
+    padding-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-text-content{
+    width: 100%;
+    padding: 5%;
+    background-color: rgba(255, 255, 255, 0.486);
+
+}
+
+
