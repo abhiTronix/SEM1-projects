@@ -1,0 +1,177 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.modal-content {
+  width: 60%;
+  height: 80vh;
+  background-color: #fff;
+}
+
+.modal-header {
+  display: flex;
+
+  flex-direction: row;
+
+
+
+}
+
+
+.modal-title {
+
+  font-family: "Gill Sans", sans-serif;
+  font-size: large;
+  font-style: bold;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.login-form {
+  width: 70%;
+  height: 90%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-content {
+
+  display: flex;
+  flex-direction: row;
+}
+
+.left-form-content {
+
+  width: 100%;
+  margin: 2%;
+
+  font-family: "Gill Sans", sans-serif;
+  font-size: large;
+  text-align: right;
+
+}
+
+.left-form-content2 {
+  text-align: center;
+  width: 80%;
+  margin: 2%;
+
+}
+
+.outer-form {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 80%;
+  height: 70%;
+}
+
+.footer {
+  width: 100%;
+  margin-left: 45%;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  font-family: "Gill Sans", sans-serif;
+  font-size: large;
+
+}
+
+.footer2 {
+  width: 100%;
+  margin-left: 5%;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+  font-family: "Gill Sans", sans-serif;
+  font-size: large;
+
+}
+
+.button-36 {
+  background-image: linear-gradient(92.88deg, #282A52 9.16%, #282A52 43.89%, #282A52 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 30%;
+
+
+}
+
+.button-36:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}
+
+@media (min-width: 768px) {
+  .button-36 {
+    padding: 0 2.6rem;
+  }
+}
+
+
+.button-36-2 {
+  background-image: linear-gradient(92.88deg, #282A52 9.16%, #282A52 43.89%, #282A52 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  height: 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 60%;
+
+
+
+
+}
+
+.button-36-2:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}
+
+@media (min-width: 768px) {
+  .button-36-2 {
+    padding: 0 2.6rem;
+  }
+}

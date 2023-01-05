@@ -1,12 +1,46 @@
 from fastapi import Body, FastAPI, Response, status, HTTPException, Depends, APIRouter
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
+from typing import List, Optional
 from sqlalchemy.orm import Session
 from .. import models, schemas, utils, oauth2
 from ..database import get_db
 from ..config import settings
 from sqlalchemy import and_
+import json
+import errno
+import os
+import sys
+import io
+from pathlib import Path
+import uuid
+
 
 router = APIRouter(prefix="/mods", tags=["Moderators"])
+
+
+def is_valid_uuid(val):
+    try:
+        uuid.UUID(str(val))
+        return True
+    except ValueError:
+        return False
+
+
+def delete_file_safe(file_path):
+    """
+    ## delete_ext_safe
+    Safely deletes files at given path.
+    Parameters:
+        file_path (string): path to the file
+    """
+    try:
+        dfile = Path(file_path)
+        if sys.version_info >= (3, 8, 0):
+            dfile.unlink(missing_ok=True)
+        else:
+            dfile.exists() and dfile.unlink()
+    except Exception as e:
+        print(str(e))
 
 
 @router.post(
@@ -32,6 +66,11 @@ def moderator_login(
     moderator_credentials: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db),
 ):
+    if not is_valid_uuid(moderator_credentials.password):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Wrong password. contant Adminstrator.",
+        )
     moderator = (
         db.query(models.Moderator)
         .filter(

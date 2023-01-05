@@ -14,6 +14,11 @@ class PostBase(BaseModel):
     curr_version: str
 
 
+class FileBase(BaseModel):
+    subject_code: str
+    filename: str
+
+
 class PostCreate(PostBase):
     pass
 
@@ -23,6 +28,18 @@ class Post(PostBase):
     created_at: datetime
     owner_username: str
     published: bool
+    revision: list
+
+    class Config:
+        orm_mode = True
+
+
+class File(FileBase):
+    id: int
+    created_at: datetime
+    owner_username: str
+    published: bool
+    filepath: str
 
     class Config:
         orm_mode = True
@@ -39,12 +56,11 @@ class PostMod(PostBase):
         orm_mode = True
 
 
-class PostUpdate(BaseModel):
-    curr_version: str
+class PostUpdate(PostMod):
+    pass
 
 
 class PostModUpdate(BaseModel):
-    revision: list
     published: bool
 
 

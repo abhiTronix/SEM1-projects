@@ -12,38 +12,37 @@ def verify_pwd(plain_password, hashed_password):
 
 
 class logged:
-    def __init__(self, username, role, token=None):
-        self.__user = username
-        self.__role = role
-        self.__token = token
+    def __init__(self):
+        self.__users = {}
+        self.__roles = {}
         self.__logged = False
 
-    def login(self, user_name, role, token):
+    def login(self, username, role, token):
         print("User successfully LoggedIn!")
-        self.__user = user_name
-        self.__role = role
-        self.__token = token
+        self.__users[username] = token
+        self.__roles[username] = role
         self.__logged = True
 
     def logout(self, username):
         print(username)
-        print(self.__user)
-        if username == self.__user:
+        if username in self.__users:
             print("User successfully LogOut!")
-            self.__user = "UNKNOWN"
-            self.__role = "UNKNOWN"
-            self.__token = None
+            self.__users.pop(username, None)
+            self.__roles.pop(username, None)
             self.__logged = False
             return True
         else:
             print("Failed to LogOut!")
             return False
 
-    def is_loggedin(self):
-        return self.__logged
+    def is_logged_auth(self, user):
+        return True if user in self.__users else False
 
-    def get_role(self):
-        return self.__role
+    def get_logged_users(self):
+        return self.__users
+
+    def get_role_auth(self, username):
+        return True if username in self.__roles else False
 
 
-log_stat = logged("UNKNOWN", "UNKNOWN")
+log_stat = logged()

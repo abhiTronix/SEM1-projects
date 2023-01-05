@@ -8,6 +8,19 @@ from sqlalchemy.sql.expression import text
 from .database import Base
 
 
+class Files(Base):
+    __tablename__ = "files"
+    id = Column(Integer, primary_key=True, nullable=False)
+    filename = Column(String, nullable=False)
+    filepath = Column(String, nullable=False)
+    subject_code = Column(String, nullable=False)
+    published = Column(Boolean, server_default="FALSE", nullable=False)
+    owner_username = Column(
+        String, ForeignKey("users.username", ondelete="CASCADE"), nullable=False
+    )
+    owner = relationship("User")
+
+
 class Post(Base):
     __tablename__ = "posts"
     id = Column(Integer, primary_key=True, nullable=False)
